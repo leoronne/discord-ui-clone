@@ -27,6 +27,8 @@
 
 This repo contains an UI clone (partial) from Discord application, based on [@guilhermerodz](https://github.com/guilhermerodz)'s [tutorial](https://www.youtube.com/watch?v=x4FdZd2-_uU).
 
+<br>
+
 Deployed [here](https://discord-interface-clone.web.app).
 
 <br>
