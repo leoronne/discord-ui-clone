@@ -6,16 +6,14 @@
 UI Clone - Discord
 </h1>
 
-#
-
 <p align="center">
-  <img src="/assets/img/banner.png"/>
+  <img src="src\assets\img\banner.png"/>
 </p>
 
 <br>
 
 <p align="center">
-  <a href="#project-recycle">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#project-star2">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#techs-rocket">Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#installation-wrench">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#test-heavy_check_mark">Test</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -25,9 +23,9 @@ UI Clone - Discord
 
 <br>
 
-## Project :recycle:
+## Project :star2:
 
-This repo contains an UI clone (partial) from Discord application, based on @guilhermerodz's [tutorial](https://www.youtube.com/watch?v=x4FdZd2-_uU).
+This repo contains an UI clone (partial) from Discord application, based on [@guilhermerodz](https://github.com/guilhermerodz)'s [tutorial](https://www.youtube.com/watch?v=x4FdZd2-_uU).
 
 <br>
 
