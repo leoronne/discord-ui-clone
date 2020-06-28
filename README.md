@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src\assets\img\favicon.png" width="500px"/>
+  <img src="src\assets\img\favicon.png" width="300px"/>
 </p>
 
 <h1 align="center">
@@ -35,7 +35,7 @@ This repo contains an UI clone (partial) from Discord application, based on @gui
 
 - [x] [ReactJS](https://reactjs.org);
 - [x] [TypeScript](https://www.typescriptlang.org/);
-- [x] [Styled Components](https://www.typescriptlang.org/).
+- [x] [Styled Components](https://styled-components.com/).
 
 <br>
 
