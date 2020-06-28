@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-UI Clone - Discord
+  UI Clone - Discord
 </h1>
 
 <p align="center">
@@ -26,6 +26,8 @@ UI Clone - Discord
 ## Project :star2:
 
 This repo contains an UI clone (partial) from Discord application, based on [@guilhermerodz](https://github.com/guilhermerodz)'s [tutorial](https://www.youtube.com/watch?v=x4FdZd2-_uU).
+
+Deployed [here](https://discord-interface-clone.web.app).
 
 <br>
 
