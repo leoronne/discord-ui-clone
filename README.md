@@ -43,7 +43,7 @@ This repo contains an UI clone (partial) from Discord application, based on [@gu
 
 <br>
 
-Deployed [here](https://discord-ui-clone.web.app).
+Deployed [here](https://discord-interface-clone.web.app/).
 
 <br>
 
