@@ -20,7 +20,7 @@ const ChannelButton: React.FC<Props> = ({ channelName, selected }) => {
         <InviteIcon data-tip="Create Invite" />
         <SettingsIcon data-tip="Channel Settings" />
       </div>
-      <ReactTooltip place="top" type="dark" effect="solid" id="settings"/>
+      <ReactTooltip place="top" type="dark" effect="solid" id="settings" />
     </Container>
   );
 };

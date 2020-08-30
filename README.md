@@ -1,16 +1,18 @@
 <p align="center">
-  <img src="src\assets\img\favicon.png" width="300px"/>
-</p>
-
-<h1 align="center">
-  UI Clone - Discord
-</h1>
-
-<p align="center">
-  <img src="src\assets\img\banner.png"/>
+  <img src="src\assets\img\transparentBanner.png" width="70%"/>
 </p>
 
 <br>
+
+<div align="center" style="margin: 20px; text-align: center">
+  
+  [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+  ![GitHub last commit](https://img.shields.io/github/last-commit/leoronne/discord-ui-clone?color=green&style=flat-square)
+  ![GitHub top language](https://img.shields.io/github/languages/top/leoronne/discord-ui-clone?style=flat-square)
+  
+</div>
+
+##
 
 <p align="center">
   <a href="#project-star2">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -21,6 +23,18 @@
   <a href="#license-memo">License</a>
 </p>
 
+
+##
+
+<br>
+
+<p align="center">
+  <img src="src\assets\img\banner.png"/>
+</p>
+
+
+##
+
 <br>
 
 ## Project :star2:
@@ -29,7 +43,7 @@ This repo contains an UI clone (partial) from Discord application, based on [@gu
 
 <br>
 
-Deployed [here](https://discord-interface-clone.web.app).
+Deployed [here](https://discord-ui-clone.web.app).
 
 <br>
 
