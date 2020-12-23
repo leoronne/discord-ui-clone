@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { LoaderSpinner } from './components';
+
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <React.Suspense fallback={<LoaderSpinner color="#6e86d6" />}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </React.Suspense>,
   document.getElementById('root')
 );
-
-serviceWorker.unregister();

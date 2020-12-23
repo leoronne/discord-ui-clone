@@ -29,3 +29,4 @@ firebase.json
 .vscode
 
 *.psd
+.eslintcache

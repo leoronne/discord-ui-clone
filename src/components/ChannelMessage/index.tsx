@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Container, Avatar, Message, Header, Content } from './styles';
+
 export { Mention } from './styles';
 
 export interface Props {
@@ -9,7 +10,7 @@ export interface Props {
   content: string | React.ReactElement | React.ReactNode;
   hasMention?: boolean;
   isBot?: boolean;
-  avatar?: any;
+  avatar?: string;
 }
 
 const ChannelMessage: React.FC<Props> = ({ author, date, content, hasMention, isBot, avatar }) => {

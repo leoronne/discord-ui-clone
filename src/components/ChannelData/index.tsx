@@ -12,22 +12,7 @@ import { Container, Messages, InputWrapper, Input, InputIcon } from './styles';
 
 const ChannelData: React.FC = () => {
   const messagesRef = useRef() as React.MutableRefObject<HTMLDivElement>;
-  const users = [
-    'Prynce',
-    'Nyarth',
-    'João Fulano',
-    'Maria Ciclano',
-    'H. Montanha',
-    'James',
-    'Enzo João',
-    'Valentina de Jesus',
-    'Enzo José',
-    'Valentina Maria',
-    'Brunno Enzo',
-    'Lara',
-    'Lohaine',
-    'Lika',
-  ];
+  const users = ['Prynce', 'Nyarth', 'John Doe', 'Maria Ciclano', 'H. Montanha', 'James', 'Enzo João', 'Valentina de Jesus', 'Enzo José', 'Valentina Maria', 'Brunno Enzo', 'Lara', 'Lohaine', 'Lika'];
   const messages = ['fine, tnx n u?', 'heyy, whats up?', 'hey, what r u up 2?', 'whats gooooooood?!', "good, just coding some rocketseat's challenges"];
 
   useEffect(() => {
@@ -47,11 +32,13 @@ const ChannelData: React.FC = () => {
         <ChannelMessage
           author="Luiky"
           date="21/06/2020"
-          content={
+          content={(
             <>
-              <Mention>@leoronne</Mention> heyyyy
+              <Mention>@leoronne</Mention>
+              {' '}
+              heyyyy
             </>
-          }
+          )}
           hasMention
           avatar={user2}
         />
@@ -63,11 +50,13 @@ const ChannelData: React.FC = () => {
           author={users[Math.floor(Math.random() * users.length)]}
           date="21/06/2020"
           hasMention
-          content={
+          content={(
             <>
-              <Mention>@leoronne</Mention> {messages[Math.floor(Math.random() * messages.length)]}
+              <Mention>@leoronne</Mention> 
+              {' '}
+              {messages[Math.floor(Math.random() * messages.length)]}
             </>
-          }
+          )}
         />
         {Array.from(Array(5).keys()).map((n) => (
           <ChannelMessage key={n} author={users[Math.floor(Math.random() * users.length)]} date="21/06/2020" content={messages[Math.floor(Math.random() * messages.length)]} />
@@ -76,11 +65,13 @@ const ChannelData: React.FC = () => {
           author={users[Math.floor(Math.random() * users.length)]}
           date="21/06/2020"
           hasMention
-          content={
+          content={(
             <>
-              <Mention>@leoronne</Mention> {messages[Math.floor(Math.random() * messages.length)]}
+              <Mention>@leoronne</Mention> 
+              {' '}
+              {messages[Math.floor(Math.random() * messages.length)]}
             </>
-          }
+          )}
         />
         <ChannelMessage author="Rocket" date="21/06/2020" content={<>There are currently 4 online users and 17 offline!</>} isBot avatar={user5} />
       </Messages>

@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from '@material-ui/core';
 
+import { useStyles } from '../../styles/MaterialUI';
 import { Container, HashtagIcon, InviteIcon, SettingsIcon } from './styles';
 
 export interface Props {
@@ -9,6 +10,7 @@ export interface Props {
 }
 
 const ChannelButton: React.FC<Props> = ({ channelName, selected }) => {
+  const classes = useStyles();
   return (
     <Container className={selected ? 'active' : ''}>
       <div>
@@ -17,10 +19,13 @@ const ChannelButton: React.FC<Props> = ({ channelName, selected }) => {
       </div>
 
       <div className={`channel-config${selected ? ' channel-active' : ''}`}>
-        <InviteIcon data-tip="Create Invite" />
-        <SettingsIcon data-tip="Channel Settings" />
+        <Tooltip title="Create Invite" placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
+          <InviteIcon />
+        </Tooltip>
+        <Tooltip title="Channel Settings" placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
+          <SettingsIcon />
+        </Tooltip>
       </div>
-      <ReactTooltip place="top" type="dark" effect="solid" id="settings" />
     </Container>
   );
 };

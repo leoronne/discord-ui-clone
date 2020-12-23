@@ -13,7 +13,7 @@ import { Container, Role, User, Avatar } from './styles';
 interface UserProps {
   nickname: string;
   isBot?: boolean;
-  avatar?: any;
+  avatar?: string;
 }
 
 const UserRow: React.FC<UserProps> = ({ nickname, isBot, avatar }) => {
@@ -41,20 +41,20 @@ const UserList: React.FC = () => {
       <UserRow nickname="Brock" avatar={user1} />
       <UserRow nickname="J. Bravo" avatar={user3} />
       <UserRow nickname="Ronne12" avatar={user4} />
-      <UserRow nickname="Prynce"/>
-      <UserRow nickname="Nyarth"/>
-      <UserRow nickname="João Fulano"/>
-      <UserRow nickname="Maria Ciclano"/>
-      <UserRow nickname="H. Montanha"/>
-      <UserRow nickname="James"/>
-      <UserRow nickname="Enzo João"/>
-      <UserRow nickname="Valentina de Jesus"/>
-      <UserRow nickname="Enzo José"/>
-      <UserRow nickname="Valentina Maria"/>
-      <UserRow nickname="Brunno Enzo"/>
-      <UserRow nickname="Lara"/>
-      <UserRow nickname="Lohaine"/>
-      <UserRow nickname="Lika"/>
+      <UserRow nickname="Prynce" />
+      <UserRow nickname="Nyarth" />
+      <UserRow nickname="John Doe" />
+      <UserRow nickname="Maria Ciclano" />
+      <UserRow nickname="H. Montanha" />
+      <UserRow nickname="James" />
+      <UserRow nickname="Enzo João" />
+      <UserRow nickname="Valentina de Jesus" />
+      <UserRow nickname="Enzo José" />
+      <UserRow nickname="Valentina Maria" />
+      <UserRow nickname="Brunno Enzo" />
+      <UserRow nickname="Lara" />
+      <UserRow nickname="Lohaine" />
+      <UserRow nickname="Lika" />
     </Container>
   );
 };

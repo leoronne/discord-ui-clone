@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from '@material-ui/core';
 
 import avatar from '~/assets/img/avatar.jpg';
 
+import { useStyles } from '../../styles/MaterialUI';
 import { Container, Profile, Avatar, UserData, Icons, Icon, MicIcon, MicOffIcon, VolumeIcon, VolumeOffIcon, SettingsIcon } from './styles';
 
 const UserInfo: React.FC = () => {
+  const classes = useStyles();
+
   const [muteMic, setMuteMic] = useState(false);
   const [muteAudio, setMuteAudio] = useState(false);
 
@@ -25,17 +28,18 @@ const UserInfo: React.FC = () => {
       </Profile>
 
       <Icons>
-        <Icon data-tip={`${muteMic ? 'Unmute' : 'Mute'} Microphone`} onClick={handleMuteMic}>
-          {muteMic ? <MicOffIcon /> : <MicIcon />}
-        </Icon>
-        <Icon data-tip={`${muteAudio ? 'Unmute' : 'Mute'} Audio`} onClick={handleMuteAudio}>
-          {muteAudio ? <VolumeOffIcon /> : <VolumeIcon />}
-        </Icon>
+        <Tooltip title={`${muteMic ? 'Unmute' : 'Mute'} Microphone`} placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
+          <Icon onClick={handleMuteMic}>{muteMic ? <MicOffIcon /> : <MicIcon />}</Icon>
+        </Tooltip>
+        <Tooltip title={`${muteAudio ? 'Unmute' : 'Mute'} Audio`} placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
+          <Icon onClick={handleMuteAudio}>{muteAudio ? <VolumeOffIcon /> : <VolumeIcon />}</Icon>
+        </Tooltip>
         <Icon>
-          <SettingsIcon data-tip="User Settings" />
+          <Tooltip title="User Settings" placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
+            <SettingsIcon />
+          </Tooltip>
         </Icon>
       </Icons>
-      <ReactTooltip place="top" type="dark" effect="float" id="icons" />
     </Container>
   );
 };

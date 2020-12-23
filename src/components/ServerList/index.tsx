@@ -23,7 +23,7 @@ const ServerList: React.FC = () => {
 
       <Separator />
 
-      <ServerButton hasNotifications mentions={11} color="#fff" logo={Pride} name="LGBTQI+ Pride" />
+      <ServerButton hasNotifications mentions={11} color="#fff" logo={Pride} name="LGBTQIA+ Pride" />
       <ServerButton hasNotifications mentions={40} color="#6633cc" logo={RocketSeat} name="RocketSeat" />
       <ServerButton hasNotifications mentions={7} color="#A598BE" logo={Code} name="Code" />
       <ServerButton mentions={32} color="#83cd29" logo={NodeJS} name="Node.js" />

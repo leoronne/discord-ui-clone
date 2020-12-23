@@ -7,10 +7,12 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  padding: 5px 3px;
+  padding: 8px 3px;
   border-radius: 5px;
   background-color: transparent;
   transition: background-color 0.2s;
+
+  margin-top: 2px;
   > div {
     display: flex;
     align-items: center;

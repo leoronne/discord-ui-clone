@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from '@material-ui/core';
 
+import { useStyles } from '../../styles/MaterialUI';
 import { Button } from './styles';
 
 export interface Props {
@@ -9,19 +10,19 @@ export interface Props {
   hasNotifications?: boolean;
   mentions?: number;
   color?: string;
-  logo?: any;
+  logo?: string;
   name?: string;
 }
 
 const ServerButton: React.FC<Props> = ({ selected, isHome, hasNotifications, mentions, color, logo, name }) => {
+  const classes = useStyles();
   return (
     <>
-      <Button isHome={isHome} hasNotifications={hasNotifications} mentions={mentions} className={selected ? 'active' : ''} color={color} data-tip={name}>
-        {/* {isHome &&  */}
-        <img src={logo} alt={name} />
-        {/* } */}
-      </Button>
-      <ReactTooltip place="right" type="dark" effect="solid"/>
+      <Tooltip title={String(name)} placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
+        <Button isHome={isHome} hasNotifications={hasNotifications} mentions={mentions} className={selected ? 'active' : ''} color={color}>
+          <img src={logo} alt={name} />
+        </Button>
+      </Tooltip>
     </>
   );
 };

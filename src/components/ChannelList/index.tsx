@@ -1,17 +1,20 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from '@material-ui/core';
 
 import ChannelButton from '../ChannelButton';
 
+import { useStyles } from '../../styles/MaterialUI';
 import { Container, Category, AddCategoryIcon } from './styles';
 
 const ChannelList: React.FC = () => {
+  const classes = useStyles();
   return (
     <Container>
       <Category>
         <span>Text channels</span>
-        <AddCategoryIcon data-tip="Add Channel" />
-        <ReactTooltip place="top" type="dark" effect="solid" id="add" />
+        <Tooltip title="Add Channel" placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
+          <AddCategoryIcon />
+        </Tooltip>
       </Category>
 
       <ChannelButton channelName="open-chat" selected />

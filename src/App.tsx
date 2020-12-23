@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Layout from './components/Layout';
+import Layout from './Layout';
 import GlobalStyles from './styles/GlobalStyles';
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <Layout />
