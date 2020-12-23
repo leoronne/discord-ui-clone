@@ -18,6 +18,9 @@ export const Container = styled.div`
   ::-webkit-scrollbar-track {
     background-color: var(--secondary);
   }
+  @media (max-width: 868px) {
+    display: none;
+  }
 `;
 
 export const Role = styled.span`

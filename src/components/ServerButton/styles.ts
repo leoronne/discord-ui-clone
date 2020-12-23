@@ -6,7 +6,12 @@ export const Container = styled.div<Props>`
   width: 48px;
   height: 48px;
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+
+  @media (max-width: 598px) {
+    width: 35px;
+    height: 35px;
+  }
 `;
 
 export const Button = styled.button<Props>`
@@ -18,7 +23,7 @@ export const Button = styled.button<Props>`
   height: 48px;
   border-radius: 50%;
   margin-bottom: 15px;
-  background-color: ${(props) => (props.color ? props.color : 'var(--primary)')}; 
+  background-color: ${(props) => (props.color ? props.color : 'var(--primary)')};
   /* ${(props) => (props.isHome ? 'var(--rocketseat)' : 'var(--primary)')}; */
   position: relative;
   cursor: pointer;
@@ -52,7 +57,7 @@ export const Button = styled.button<Props>`
     font-weight: bold;
     color: var(--white);
     content: '${(props) => props.mentions && props.mentions}';
-    display: ${(props) => (props.mentions && props.mentions > 0 ? 'inline' : 'none')}
+    display: ${(props) => (props.mentions && props.mentions > 0 ? 'inline' : 'none')};
   }
   transition: border-radius 0.2s, background-color 0.2s;
   &.active,
@@ -63,6 +68,25 @@ export const Button = styled.button<Props>`
   &:hover ~ .tooltiptext {
     visibility: visible;
     opacity: 1;
+  }
+
+  @media (max-width: 598px) {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+    &::before {
+      width: 5px;
+      height: 5px;
+      left: -13px;
+    }
+    > img {
+      width: 25px;
+      height: 25px;
+    }
+    &::after {
+      height: 10px;
+      font-size: 7px;
+    }
   }
 `;
 
@@ -107,5 +131,9 @@ export const Tooltip = styled.div<Props>`
   .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+  }
+
+  @media (max-width: 598px) {
+    width: 15px;
   }
 `;

@@ -9,6 +9,10 @@ export const Container = styled.div`
   background-color: var(--secondary);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px 0px;
   z-index: 2;
+
+  @media (max-width: 598px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.h1`
