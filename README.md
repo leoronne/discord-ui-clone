@@ -38,7 +38,7 @@ This repo contains an UI clone (partial) from Discord website.
 
 <br>
 
-Deployed [here](https://discord.ui-clone.ronne.dev).
+Deployed [here](https://discord-interface-clone.web.app/).
 
 <br>
 
