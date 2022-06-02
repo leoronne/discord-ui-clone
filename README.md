@@ -34,9 +34,9 @@
 
 ## Project :star2:
 
-This repo contains an UI clone (partial) from Discord website.
+This project was part of an UI Clone challenge, the idea was to replicate (partially) the Discord's channels page using ReactJS, MUI and styled-components.
 
-<br>
+The intent of this project was to work with more complex grid attributes of CSS.
 
 Deployed [here](https://discord.ui-clone.ronne.dev).
 
