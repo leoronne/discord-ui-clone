@@ -5,6 +5,7 @@ import { ChannelData, ChannelInfo, UserInfo, RightSidebar, LeftSidebar, MessageI
 import PrivateMessagesPage from '../pages/PrivateMessages';
 import GroupChatsPage from '../pages/GroupChats';
 import { ServerData } from '../components/ServerList';
+import { UserProfileData } from '../data/userProfiles';
 
 import RocketSeat from '~/assets/svg/RocketSeat.svg';
 import Code from '~/assets/svg/Code.svg';
@@ -43,8 +44,11 @@ const Layout: React.FC = () => {
 
   const recentServers = servers.slice(0, 5); // Show 3 most recent
 
-  const [leftCollapsed, setLeftCollapsed] = useState(false);
-  const [rightCollapsed, setRightCollapsed] = useState(false);
+  const [leftWidth, setLeftWidth] = useState<number>(240);
+  const [rightWidth, setRightWidth] = useState<number>(240);
+  const [selectedUser, setSelectedUser] = useState<UserProfileData | null>(null);
+  const leftCollapsed = leftWidth === 0;
+  const rightCollapsed = rightWidth === 0;
   
   const handleServerClick = (serverName: string) => {
     if (serverName === 'See All') {
@@ -89,7 +93,7 @@ const Layout: React.FC = () => {
     // Otherwise render based on activeNav
     switch (activeNav) {
       case 'private':
-        return <PrivateMessagesPage />;
+        return <PrivateMessagesPage onUserSelect={setSelectedUser} selectedUser={selectedUser} />;
       case 'groups':
         return <GroupChatsPage />;
       case 'servers':
@@ -118,7 +122,7 @@ const Layout: React.FC = () => {
   };
 
   return (
-    <Grid $leftCollapsed={leftCollapsed} $rightCollapsed={rightCollapsed}>
+    <Grid $leftWidth={leftWidth} $rightWidth={rightWidth}>
       <TopBar>
         <Navigation activeNav={activeNav} onChange={handleNavChange} />
         {showServerDropdown && (
@@ -127,8 +131,10 @@ const Layout: React.FC = () => {
       </TopBar>
 
       {/* Left sidebar */}
-      <Sidebar $collapsed={leftCollapsed}>
+      <Sidebar $width={leftWidth}>
         <LeftSidebar 
+          width={leftWidth}
+          setWidth={setLeftWidth}
           selectedChannel={selectedChannel} 
           onChannelSelect={setSelectedChannel} 
         />
@@ -137,7 +143,8 @@ const Layout: React.FC = () => {
       {/* Collapse toggle: left sidebar */}
       <CollapseButtonLeft
         $collapsed={leftCollapsed}
-        onClick={() => setLeftCollapsed((c) => !c)}
+        $leftWidth={leftWidth}
+        onClick={() => setLeftWidth((w) => (w === 0 ? 240 : 0))}
         title={leftCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         aria-label={leftCollapsed ? 'Expand left sidebar' : 'Collapse left sidebar'}
       >
@@ -149,7 +156,8 @@ const Layout: React.FC = () => {
       {/* Collapse toggle: right sidebar */}
       <CollapseButtonRight
         $collapsed={rightCollapsed}
-        onClick={() => setRightCollapsed((c) => !c)}
+        $rightWidth={rightWidth}
+        onClick={() => setRightWidth((w) => (w === 0 ? 240 : 0))}
         title={rightCollapsed ? 'Expand members list' : 'Collapse members list'}
         aria-label={rightCollapsed ? 'Expand right sidebar' : 'Collapse right sidebar'}
       >
@@ -157,8 +165,14 @@ const Layout: React.FC = () => {
       </CollapseButtonRight>
 
       {/* Right sidebar */}
-      <RightSidebarWrapper $collapsed={rightCollapsed}>
-        <RightSidebar />
+      <RightSidebarWrapper $width={rightWidth}>
+        <RightSidebar
+          width={rightWidth}
+          setWidth={setRightWidth}
+          activeNav={activeNav}
+          selectedUser={selectedUser}
+          setSelectedUser={setSelectedUser}
+        />
       </RightSidebarWrapper>
 
       <MessageInputContainer>

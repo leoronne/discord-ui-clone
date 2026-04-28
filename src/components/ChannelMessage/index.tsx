@@ -5,7 +5,7 @@ import { Container, Avatar, Message, Header, Content } from './styles';
 export { Mention } from './styles';
 
 export interface Props {
-  author: string;
+  author: React.ReactNode;
   date: string;
   content: string | React.ReactElement | React.ReactNode;
   hasMention?: boolean;
@@ -16,7 +16,7 @@ export interface Props {
 const ChannelMessage: React.FC<Props> = ({ author, date, content, hasMention, isBot, avatar }) => {
   return (
     <Container className={hasMention ? 'mention' : ''}>
-      <Avatar className={isBot ? 'bot' : ''}>{avatar ? <img src={avatar} alt={author} className="user-avatar" /> : ''}</Avatar>
+      <Avatar className={isBot ? 'bot' : ''}>{avatar ? <img src={avatar} alt={typeof author === 'string' ? author : ''} className="user-avatar" /> : ''}</Avatar>
 
       <Message>
         <Header>

@@ -11,3 +11,4 @@ export { default as MessageInput } from './MessageInput';
 export { default as RightSidebar } from './RightSidebar';
 export { default as Navigation } from './NavigationBar';
 export { default as ServerDropdown } from './ServerDropdown';
+export { default as UserProfile } from './UserProfile';

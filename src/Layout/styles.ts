@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const Grid = styled.div<{ $leftCollapsed: boolean; $rightCollapsed: boolean }>`
+export const Grid = styled.div<{ $leftWidth: number; $rightWidth: number }>`
   display: grid;
   height: 100vh;
   width: 100%;
   grid-template-rows: 46px 1fr 52px;
-  grid-template-columns: ${({ $leftCollapsed, $rightCollapsed }) =>
-    `${$leftCollapsed ? '0px' : '240px'} 1fr ${$rightCollapsed ? '0px' : '240px'}`};
+  grid-template-columns: ${({ $leftWidth, $rightWidth }) =>
+    `${$leftWidth}px 1fr ${$rightWidth}px`};
   gap: 0;
   background-color: var(--primary);
   transition: grid-template-columns 0.25s ease;
@@ -24,24 +24,24 @@ export const TopBar = styled.div`
   position: relative;
 `;
 
-export const Sidebar = styled.div<{ $collapsed?: boolean }>`
+export const Sidebar = styled.div<{ $width: number }>`
   grid-row: 2;
   overflow: hidden;
   background-color: var(--secondary);
-  width: ${({ $collapsed }) => ($collapsed ? '0px' : '240px')};
+  width: ${({ $width }) => `${$width}px`};
   min-width: 0;
   transition: width 0.25s ease;
-  overflow-y: ${({ $collapsed }) => ($collapsed ? 'hidden' : 'auto')};
+  overflow-y: ${({ $width }) => ($width === 0 ? 'hidden' : 'auto')};
 `;
 
-export const RightSidebarWrapper = styled.div<{ $collapsed?: boolean }>`
+export const RightSidebarWrapper = styled.div<{ $width: number }>`
   grid-row: 2 / 4;
   overflow: hidden;
   background-color: var(--secondary);
-  width: ${({ $collapsed }) => ($collapsed ? '0px' : '240px')};
+  width: ${({ $width }) => `${$width}px`};
   min-width: 0;
   transition: width 0.25s ease;
-  overflow-y: ${({ $collapsed }) => ($collapsed ? 'hidden' : 'auto')};
+  overflow-y: ${({ $width }) => ($width === 0 ? 'hidden' : 'auto')};
 
   @media (max-width: 867px) {
     display: none;
@@ -74,9 +74,9 @@ export const Footer = styled.div<{ $leftCollapsed: boolean }>`
   transition: width 0.25s ease;
 `;
 
-export const CollapseButtonLeft = styled.button<{ $collapsed: boolean }>`
+export const CollapseButtonLeft = styled.button<{ $collapsed: boolean; $leftWidth: number }>`
   position: fixed;
-  left: ${({ $collapsed }) => ($collapsed ? '0px' : '240px')};
+  left: ${({ $collapsed, $leftWidth }) => ($collapsed ? '0px' : `${$leftWidth}px`)};
   top: 15%;
   transform: translateY(-50%);
   width: 20px;
@@ -102,9 +102,9 @@ export const CollapseButtonLeft = styled.button<{ $collapsed: boolean }>`
   }
 `;
 
-export const CollapseButtonRight = styled.button<{ $collapsed: boolean }>`
+export const CollapseButtonRight = styled.button<{ $collapsed: boolean; $rightWidth: number }>`
   position: fixed;
-  right: ${({ $collapsed }) => ($collapsed ? '0px' : '240px')};
+  right: ${({ $collapsed, $rightWidth }) => ($collapsed ? '0px' : `${$rightWidth}px`)};
   top: 15%;
   transform: translateY(-50%);
   width: 20px;
