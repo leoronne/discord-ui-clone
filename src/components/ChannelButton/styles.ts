@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Hashtag } from 'styled-icons/heroicons-outline';
-import { PersonAdd, Settings } from 'styled-icons/material';
+import { PersonAddAlt, Settings } from 'styled-icons/material';
 
 export const Container = styled.div`
   display: flex;
@@ -51,7 +51,7 @@ export const HashtagIcon = styled(Hashtag)`
   color: var(--symbol);
 `;
 
-export const InviteIcon = styled(PersonAdd)`
+export const InviteIcon = styled(PersonAddAlt)`
   width: 16px;
   height: 16px;
   color: var(--symbol);

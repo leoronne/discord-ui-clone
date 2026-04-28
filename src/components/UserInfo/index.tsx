@@ -19,11 +19,11 @@ const UserInfo: React.FC = () => {
     <Container>
       <Profile>
         <Avatar>
-          <img src={avatar} alt="leoronne" className="user-avatar" />
+          <img src={avatar} alt="GoldDragon" className="user-avatar" />
         </Avatar>
         <UserData>
-          <strong>leoronne</strong>
-          <span>#9480</span>
+          <strong>GoldDragon</strong>
+          <span>Online</span>
         </UserData>
       </Profile>
 

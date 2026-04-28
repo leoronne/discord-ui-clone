@@ -8,9 +8,13 @@ import user5 from '~/assets/img/user5.jpg';
 
 import ChannelMessage, { Mention } from '../ChannelMessage';
 
-import { Container, Messages, InputWrapper, Input, InputIcon } from './styles';
+import { Container, Messages, EmptyChannel, EmptyChannelIcon, EmptyChannelText } from './styles';
 
-const ChannelData: React.FC = () => {
+export interface Props {
+  channelName?: string;
+}
+
+const ChannelData: React.FC<Props> = ({channelName}) => {
   const messagesRef = useRef() as React.MutableRefObject<HTMLDivElement>;
   const users = ['Prynce', 'Nyarth', 'John Doe', 'Maria Ciclano', 'H. Montanha', 'James', 'Enzo João', 'Valentina de Jesus', 'Enzo José', 'Valentina Maria', 'Brunno Enzo', 'Lara', 'Lohaine', 'Lika'];
   const messages = ['fine, tnx n u?', 'heyy, whats up?', 'hey, what r u up 2?', 'whats gooooooood?!', "good, just coding some rocketseat's challenges"];
@@ -22,6 +26,22 @@ const ChannelData: React.FC = () => {
       div.scrollTop = div.scrollHeight;
     }
   }, [messagesRef]);
+
+  // Show empty state for channels other than open-chat
+  if (channelName !== 'open-chat') {
+    return (
+      <Container>
+        <EmptyChannel>
+          <EmptyChannelIcon>
+            {`#${channelName}`}
+          </EmptyChannelIcon>
+          <EmptyChannelText>
+            {`Welcome to #${channelName}, be the first to start a conversation!`}
+          </EmptyChannelText>
+        </EmptyChannel>
+      </Container>
+    );
+  }
 
   return (
     <Container>
@@ -75,11 +95,6 @@ const ChannelData: React.FC = () => {
         />
         <ChannelMessage author="Rocket" date="21/06/2020" content={<>There are currently 4 online users and 17 offline!</>} isBot avatar={user5} />
       </Messages>
-
-      <InputWrapper>
-        <Input type="text" placeholder="Conversarem #chat-livre" />
-        <InputIcon />
-      </InputWrapper>
     </Container>
   );
 };
