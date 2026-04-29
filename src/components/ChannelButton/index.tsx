@@ -7,22 +7,33 @@ import { Container, HashtagIcon, InviteIcon, SettingsIcon } from './styles';
 export interface Props {
   channelName: string;
   selected?: boolean;
+  onClick?: () => void;
 }
 
-const ChannelButton: React.FC<Props> = ({ channelName, selected }) => {
+const ChannelButton: React.FC<Props> = ({ channelName, selected, onClick }) => {
   const classes = useStyles();
   return (
-    <Container className={selected ? 'active' : ''}>
+    <Container className={selected ? 'active' : ''} onClick={onClick}>
       <div>
         <HashtagIcon />
         <span>{channelName}</span>
       </div>
 
       <div className={`channel-config${selected ? ' channel-active' : ''}`}>
-        <Tooltip title="Create Invite" placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
+        <Tooltip
+          title="Create Invite"
+          placement="bottom"
+          arrow
+          classes={{ tooltip: classes.tooltip, arrow: classes.arrow, popper: classes.popper }}
+        >
           <InviteIcon />
         </Tooltip>
-        <Tooltip title="Channel Settings" placement="bottom" arrow classes={{ tooltip: classes.tooltip }}>
+        <Tooltip
+          title="Channel Settings"
+          placement="bottom"
+          arrow
+          classes={{ tooltip: classes.tooltip, arrow: classes.arrow, popper: classes.popper }}
+        >
           <SettingsIcon />
         </Tooltip>
       </div>

@@ -7,6 +7,8 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 24px 9.5px 0 16px;
   background-color: var(--secondary);
+  overflow: visible;
+  font-family: 'DM Sans', var(--font-family);
 
   @media (max-width: 598px) {
     display: none;
@@ -23,6 +25,7 @@ export const Category = styled.div`
     font-size: 12px;
     font-weight: 500;
     color: var(--gray);
+    font-family: 'DM Sans', var(--font-family);
   }
 `;
 

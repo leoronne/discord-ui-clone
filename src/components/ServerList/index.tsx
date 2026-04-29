@@ -1,38 +1,85 @@
 import React from 'react';
+import { Add } from 'styled-icons/material';
 
-import ServerButton from '../ServerButton';
+import DiscordLogo from '~/assets/img/discord_logo_clone.jpeg';
 
-import { Container, Separator } from './styles';
+import {
+  Container,
+  HomeButton,
+  Separator,
+  ServerButton,
+  ActivePill,
+  MentionsBadge,
+  NotificationsDot,
+  PlusButton,
+  ServerIcon,
+  ServerInitials,
+} from './styles';
 
-import RocketSeat from '~/assets/svg/RocketSeat.svg';
-import Pokemon from '~/assets/svg/Pokémon.svg';
-import Code from '~/assets/svg/Code.svg';
-import TypeScript from '~/assets/svg/TypeScript.svg';
-import ReactJS from '~/assets/svg/ReactJS.svg';
-import NodeJS from '~/assets/svg/NodeJS.svg';
-import Mario from '~/assets/svg/Mario.svg';
-import Pride from '~/assets/svg/Pride.svg';
-import DC from '~/assets/svg/DC.svg';
-import CSS from '~/assets/svg/CSS.svg';
-import Ronne from '~/assets/svg/Ronne.svg';
+export interface ServerData {
+  name: string;
+  logo?: string;
+  color: string;
+  mentions?: number;
+  hasNotifications?: boolean;
+  isHome?: boolean;
+  memberNames?: string[];
+}
 
-const ServerList: React.FC = () => {
+interface Props {
+  onServerClick: (serverName: string) => void;
+  selectedServer?: string | null;
+  allServers: ServerData[];
+  onAddServerClick?: () => void;
+}
+
+const ServerList: React.FC<Props> = ({
+  onServerClick,
+  selectedServer,
+  allServers,
+  onAddServerClick,
+}) => {
   return (
     <Container>
-      <ServerButton isHome hasNotifications mentions={40} color="#cc78a3" logo={Ronne} name="Ronne Dev Server" />
-
+      <HomeButton
+        data-tooltip="Home"
+        aria-label="Home"
+        onClick={() => onServerClick('Ronne Dev Server')}
+        $active={selectedServer === 'Ronne Dev Server'}
+      >
+        {selectedServer === 'Ronne Dev Server' ? <ActivePill /> : null}
+        <ServerIcon src={DiscordLogo} alt="Home" />
+      </HomeButton>
       <Separator />
-
-      <ServerButton hasNotifications mentions={11} color="#fff" logo={Pride} name="LGBTQIA+ Pride" />
-      <ServerButton hasNotifications mentions={40} color="#6633cc" logo={RocketSeat} name="RocketSeat" />
-      <ServerButton hasNotifications mentions={7} color="#A598BE" logo={Code} name="Code" />
-      <ServerButton mentions={32} color="#83cd29" logo={NodeJS} name="Node.js" />
-      <ServerButton hasNotifications mentions={12} color="#2062af" logo={CSS} name="CSS" />
-      <ServerButton mentions={42} color="#007bcd" logo={TypeScript} name="TypeScript" />
-      <ServerButton mentions={52} color="#00d8ff" logo={ReactJS} name="ReactJS" />
-      <ServerButton hasNotifications color="#0078f0" logo={DC} name="DC Comics" />
-      <ServerButton mentions={12} color="#ed1b24" logo={Pokemon} name="Pokémon" />
-      <ServerButton hasNotifications color="#db5454" logo={Mario} name="Super Mario" />
+      {allServers.map((server) => (
+        <ServerButton
+          key={server.name}
+          data-tooltip={server.name}
+          aria-label={server.name}
+          onClick={() => onServerClick(server.name)}
+          $active={selectedServer === server.name}
+          $color={server.color}
+        >
+          {selectedServer === server.name ? <ActivePill /> : null}
+          {server.logo ? (
+            <ServerIcon src={server.logo} alt={server.name} />
+          ) : (
+            <ServerInitials $color={server.color}>
+              {server.name[0]?.toUpperCase() || '?'}
+            </ServerInitials>
+          )}
+          {server.hasNotifications ? <NotificationsDot /> : null}
+          {server.mentions ? <MentionsBadge>{server.mentions}</MentionsBadge> : null}
+        </ServerButton>
+      ))}
+      <PlusButton
+        type="button"
+        data-tooltip="Add a Server"
+        aria-label="Add a Server"
+        onClick={onAddServerClick}
+      >
+        <Add size={22} />
+      </PlusButton>
     </Container>
   );
 };

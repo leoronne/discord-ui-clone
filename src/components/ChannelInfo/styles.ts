@@ -5,21 +5,22 @@ export const Container = styled.div`
   grid-area: CI;
   display: flex;
   align-items: center;
-  padding: 0 17px;
+  min-height: 60px;
+  padding: 0 20px;
   background-color: var(--primary);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px 0px;
   z-index: 2;
 `;
 
 export const HashtagIcon = styled(Hashtag)`
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   color: var(--symbol);
 `;
 
 export const Title = styled.h1`
   margin-left: 9px;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bold;
   color: var(--white);
 `;

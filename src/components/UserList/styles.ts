@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 3px 6px 0 16px;
   background-color: var(--secondary);
+  font-family: 'DM Sans', var(--font-family);
   max-height: calc(100vh - 46px);
   overflow-y: scroll;
   ::-webkit-scrollbar {
@@ -29,6 +30,7 @@ export const Role = styled.span`
   font-size: 12px;
   font-weight: 500;
   color: var(--gray);
+  font-family: 'DM Sans', var(--font-family);
 `;
 
 export const User = styled.div`
@@ -43,14 +45,21 @@ export const User = styled.div`
   &:hover {
     background: rgba(255, 255, 255, 0.1);
   }
+  &:hover > strong {
+    text-decoration: underline;
+  }
   > strong {
     margin-left: 13px;
     font-weight: 500;
     color: var(--white);
-    opacity: 0.7;
+    opacity: 1;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    font-family: 'DM Sans', var(--font-family);
+    transition: text-decoration-color 0.15s ease;
+    text-decoration: underline;
+    text-decoration-color: transparent;
   }
   > span {
     margin-left: 9px;

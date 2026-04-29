@@ -2,12 +2,15 @@ import React from 'react';
 
 import { Container, HashtagIcon, Title, Separator, Description } from './styles';
 
-const ChannelInfo: React.FC = () => {
+interface Props {
+  channelName: string;
+}
+const ChannelInfo: React.FC<Props> = ({ channelName }) => {
   return (
     <Container>
       <HashtagIcon />
 
-      <Title>open-chat</Title>
+      <Title>{`#${channelName}`}</Title>
 
       <Separator />
 

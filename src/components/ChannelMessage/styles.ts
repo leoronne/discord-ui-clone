@@ -46,6 +46,22 @@ export const Header = styled.div`
     color: var(--white);
     font-size: 16px;
   }
+  .author-link {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: text-decoration-color 0.15s ease;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+  }
+  .author-link:hover {
+    text-decoration-color: var(--white);
+  }
   > span {
     margin-left: 6px;
     background-color: var(--discord);

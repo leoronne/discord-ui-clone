@@ -3,137 +3,91 @@ import styled from 'styled-components';
 import { Props } from '.';
 
 export const Container = styled.div<Props>`
-  width: 48px;
-  height: 48px;
+  width: 100%;
+  height: auto;
   position: relative;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 
   @media (max-width: 598px) {
-    width: 35px;
-    height: 35px;
+    width: 100%;
   }
 `;
 
 export const Button = styled.button<Props>`
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  background-color: ${(props) => (props.color ? props.color : 'var(--primary)')};
-  /* ${(props) => (props.isHome ? 'var(--rocketseat)' : 'var(--primary)')}; */
-  position: relative;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  padding: 4px 8px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  > img {
-    width: 30px;
-    height: 30px;
+  gap: 12px;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  position: relative;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
+
+  &.active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  > img {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background-color: ${(props) => (props.color ? props.color : 'var(--primary)')};
+    padding: 4px;
+    box-sizing: border-box;
+  }
+
   &::before {
     width: 9px;
     height: 9px;
     position: absolute;
-    left: -17px;
+    left: 2px;
     top: calc(50% - 4.5px);
     background-color: var(--white);
     border-radius: 50%;
     content: '';
     display: ${(props) => (props.hasNotifications ? 'inline' : 'none')};
   }
+
   &::after {
     background-color: var(--notification);
     width: auto;
     height: 16px;
     padding: 0 4px;
     position: absolute;
-    bottom: -4px;
-    right: -4px;
+    left: 30px;
+    top: 24px;
     border-radius: 12px;
-    border: 4px solid var(--quaternary);
-    text-align: right;
-    font-size: 13px;
+    border: 4px solid var(--secondary);
+    text-align: center;
+    font-size: 10px;
     font-weight: bold;
     color: var(--white);
     content: '${(props) => props.mentions && props.mentions}';
     display: ${(props) => (props.mentions && props.mentions > 0 ? 'inline' : 'none')};
   }
-  transition: border-radius 0.2s, background-color 0.2s;
-  &.active,
-  &:hover {
-    border-radius: 16px;
-    background-color: ${(props) => (props.color ? props.color : 'var(--discord)')};
-  }
-  &:hover ~ .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
 
   @media (max-width: 598px) {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 10px;
-    &::before {
-      width: 5px;
-      height: 5px;
-      left: -13px;
-    }
+    font-size: 12px;
+    padding: 3px 6px;
+    gap: 8px;
     > img {
-      width: 25px;
-      height: 25px;
-    }
-    &::after {
-      height: 10px;
-      font-size: 7px;
+      width: 24px;
+      height: 24px;
     }
   }
 `;
 
-export const Tooltip = styled.div<Props>`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-
-  .tooltiptext {
-    /* visibility: hidden; */
-    text-align: center !important;
-    font-size: 16px;
-    padding: 5px;
-    width: 120px;
-    background-color: var(--ifm-scrollbar-hover);
-    color: var(--white);
-    text-align: center;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-    /* opacity: 0; */
-    transition: opacity 0.3s;
-    display: initial;
-  }
-
-  .tooltiptext::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: var(--ifm-scrollbar-hover) transparent transparent transparent;
-  }
-
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  @media (max-width: 598px) {
-    width: 15px;
-  }
-`;
